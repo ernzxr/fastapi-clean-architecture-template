@@ -1,0 +1,46 @@
+[project]
+name = "fastapi-clean-architecture-template"
+version = "0.1.0"
+description = "Simple 3-Layer Clean Architecture Template"
+readme = "README.md"
+authors = [
+    { name = "Ernesto José Riveiro", email = "ernesto.j.riveiro@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.13.0",
+    "pydantic[email]>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "psycopg[binary]>=3.1.0",
+    "pyjwt>=2.8.0",
+    "pwdlib[argon2,bcrypt]>=0.3.1",
+    "python-multipart>=0.0.32",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "pytest-env>=1.7.1",
+    "ruff>=0.3.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+env = [
+    "APP_ENV=test",
+]
